@@ -155,3 +155,26 @@ export const crud = {
   update: updateRow,
   delete: deleteRow,
 };
+
+
+export async function submitContactMessage(data: {
+  name: string;
+  email: string;
+  subject?: string;
+  message: string;
+}) {
+  const { error } = await supabase
+    .from('contact_messages')
+    .insert([
+      {
+        name: data.name,
+        email: data.email,
+        subject: data.subject || null,
+        message: data.message,
+      },
+    ]);
+
+  if (error) {
+    throw error;
+  }
+}

@@ -26,7 +26,7 @@ export function EducationPage() {
   if (error) return <div className="pt-20"><ErrorState message="Failed to load education." /></div>;
 
   return (
-    <div className="pt-20">
+    <div>
       <section className="bg-navy-950 relative overflow-hidden py-20">
         <div className="absolute inset-0 grid-pattern opacity-30" />
         <div className="absolute top-0 right-0 w-[400px] h-[400px] bg-accent-500/10 rounded-full blur-[100px]" />

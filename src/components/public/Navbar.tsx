@@ -3,6 +3,9 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, Download } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+import type { Profile } from '@/types/database';
+import { getProfile } from '@/lib/dataService';
+
 const navLinks = [
   { to: '/', label: 'Home' },
   { to: '/about', label: 'About' },
@@ -15,16 +18,31 @@ const navLinks = [
 ];
 
 export function Navbar() {
+  const [profile, setProfile] = useState<Profile | null>(null);
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+
   const location = useLocation();
 
+  // Fetch profile from Supabase
+  useEffect(() => {
+    getProfile()
+      .then((data) => {
+        setProfile(data);
+      })
+      .catch((error) => {
+        console.error('Failed to load profile:', error);
+      });
+  }, []);
+
+  // Detect scroll position
   useEffect(() => {
     const onScroll = () => {
       setScrolled(window.scrollY > 30);
     };
 
     onScroll();
+
     window.addEventListener('scroll', onScroll);
 
     return () => {
@@ -32,6 +50,7 @@ export function Navbar() {
     };
   }, []);
 
+  // Close mobile menu when changing page
   useEffect(() => {
     setMobileOpen(false);
   }, [location.pathname]);
@@ -41,7 +60,7 @@ export function Navbar() {
       className={cn(
         'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
         scrolled
-          ? 'bg-white/95 backdrop-blur-xl border-b border-slate-200/80 shadow-sm'
+          ? 'border-b border-slate-200/80 bg-white/95 shadow-sm backdrop-blur-xl'
           : 'bg-transparent'
       )}
     >
@@ -58,18 +77,12 @@ export function Navbar() {
           lg:px-10
         "
       >
-
-        {/* =====================================================
-            LOGO
-        ===================================================== */}
-
+        {/* LOGO */}
         <Link
           to="/"
           className="flex min-w-0 shrink-0 items-center gap-2.5"
         >
-
           {/* JK */}
-
           <span
             className={cn(
               `
@@ -88,8 +101,7 @@ export function Navbar() {
             JK
           </span>
 
-          {/* Name */}
-
+          {/* NAME */}
           <span
             className={cn(
               `
@@ -111,18 +123,11 @@ export function Navbar() {
           >
             John Kessellie Jallah
           </span>
-
         </Link>
 
-
-        {/* =====================================================
-            DESKTOP NAVIGATION
-        ===================================================== */}
-
+        {/* DESKTOP NAVIGATION */}
         <div className="hidden items-center gap-1 lg:flex">
-
           {navLinks.map((link) => (
-
             <NavLink
               key={link.to}
               to={link.to}
@@ -130,7 +135,6 @@ export function Navbar() {
               className={({ isActive }) =>
                 cn(
                   'relative px-2.5 py-2 text-[13px] font-medium transition-colors xl:px-3 xl:text-sm',
-
                   scrolled
                     ? isActive
                       ? 'text-accent-600'
@@ -141,7 +145,6 @@ export function Navbar() {
                 )
               }
             >
-
               {({ isActive }) => (
                 <>
                   {link.label}
@@ -166,88 +169,101 @@ export function Navbar() {
                   />
                 </>
               )}
-
             </NavLink>
-
           ))}
-
         </div>
 
-
-        {/* =====================================================
-            DESKTOP DOWNLOAD CV
-        ===================================================== */}
-
-        <a
-          href="#"
-          className={cn(
-            `
-              group
-              hidden
-              shrink-0
-              items-center
-              gap-2.5
-              rounded-xl
-              border
-              px-4
-              py-2.5
-              text-[13px]
-              font-semibold
-              transition-all
-              duration-300
-              lg:inline-flex
-              xl:px-5
-            `,
-
-            scrolled
-              ? `
-                border-navy-900
-                bg-navy-900
-                text-white
-                shadow-[0_8px_20px_rgba(15,23,42,0.18)]
-                hover:-translate-y-0.5
-                hover:bg-accent-600
-                hover:shadow-[0_12px_28px_rgba(59,130,246,0.28)]
+        {/* DESKTOP DOWNLOAD CV */}
+        {profile?.cv_url ? (
+          <a
+            href={profile.cv_url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={cn(
               `
-              : `
-                border-white/20
-                bg-white/[0.08]
-                text-white
-                backdrop-blur-md
-                shadow-[0_8px_24px_rgba(0,0,0,0.12)]
-                hover:-translate-y-0.5
-                hover:border-accent-400/60
-                hover:bg-accent-500
-              `
-          )}
-        >
-
-          <span
-            className="
-              flex
-              h-7
-              w-7
-              items-center
-              justify-center
-              rounded-lg
-              bg-white/10
-              transition-transform
-              duration-300
-              group-hover:scale-110
-            "
+                group
+                hidden
+                shrink-0
+                items-center
+                gap-2.5
+                rounded-xl
+                border
+                px-4
+                py-2.5
+                text-[13px]
+                font-semibold
+                transition-all
+                duration-300
+                lg:inline-flex
+                xl:px-5
+              `,
+              scrolled
+                ? `
+                  border-navy-900
+                  bg-navy-900
+                  text-white
+                  shadow-[0_8px_20px_rgba(15,23,42,0.18)]
+                  hover:-translate-y-0.5
+                  hover:bg-accent-600
+                  hover:shadow-[0_12px_28px_rgba(59,130,246,0.28)]
+                `
+                : `
+                  border-white/20
+                  bg-white/[0.08]
+                  text-white
+                  backdrop-blur-md
+                  shadow-[0_8px_24px_rgba(0,0,0,0.12)]
+                  hover:-translate-y-0.5
+                  hover:border-accent-400/60
+                  hover:bg-accent-500
+                `
+            )}
           >
-            <Download className="h-3.5 w-3.5" />
+            <span
+              className="
+                flex
+                h-7
+                w-7
+                items-center
+                justify-center
+                rounded-lg
+                bg-white/10
+                transition-transform
+                duration-300
+                group-hover:scale-110
+              "
+            >
+              <Download className="h-3.5 w-3.5" />
+            </span>
+
+            <span>Download CV</span>
+          </a>
+        ) : (
+          <span
+            className={cn(
+              `
+                hidden
+                shrink-0
+                items-center
+                gap-2.5
+                rounded-xl
+                px-4
+                py-2.5
+                text-[13px]
+                font-semibold
+                opacity-60
+                lg:inline-flex
+                xl:px-5
+              `,
+              scrolled ? 'text-slate-400' : 'text-white/60'
+            )}
+          >
+            <Download className="h-4 w-4" />
+            CV Loading...
           </span>
+        )}
 
-          <span>Download CV</span>
-
-        </a>
-
-
-        {/* =====================================================
-            MOBILE MENU BUTTON
-        ===================================================== */}
-
+        {/* MOBILE MENU BUTTON */}
         <button
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -264,42 +280,26 @@ export function Navbar() {
             lg:hidden
           "
         >
-
           {mobileOpen ? (
-
             <X
               className={cn(
                 'h-7 w-7',
-                scrolled
-                  ? 'text-navy-900'
-                  : 'text-white'
+                scrolled ? 'text-navy-900' : 'text-white'
               )}
             />
-
           ) : (
-
             <Menu
               className={cn(
                 'h-8 w-8',
-                scrolled
-                  ? 'text-navy-900'
-                  : 'text-white'
+                scrolled ? 'text-navy-900' : 'text-white'
               )}
             />
-
           )}
-
         </button>
-
       </nav>
 
-
-      {/* =====================================================
-          MOBILE MENU
-      ===================================================== */}
-
+      {/* MOBILE MENU */}
       {mobileOpen && (
-
         <div
           className={cn(
             `
@@ -312,7 +312,6 @@ export function Navbar() {
               : 'border-white/10 bg-[#07111f]/98 backdrop-blur-xl'
           )}
         >
-
           <div
             className="
               container-page
@@ -323,9 +322,7 @@ export function Navbar() {
               py-5
             "
           >
-
             {navLinks.map((link) => (
-
               <NavLink
                 key={link.to}
                 to={link.to}
@@ -340,7 +337,6 @@ export function Navbar() {
                       font-medium
                       transition-colors
                     `,
-
                     scrolled
                       ? isActive
                         ? 'bg-accent-50 text-accent-600'
@@ -353,46 +349,42 @@ export function Navbar() {
               >
                 {link.label}
               </NavLink>
-
             ))}
 
+            {/* MOBILE DOWNLOAD CV */}
+            {profile?.cv_url && (
+              <a
+                href={profile.cv_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={cn(
+                  `
+                    mt-3
+                    flex
+                    items-center
+                    justify-center
+                    gap-2
+                    rounded-lg
+                    px-4
+                    py-3
+                    text-sm
+                    font-medium
+                    transition-all
+                    hover:opacity-90
+                  `,
+                  scrolled
+                    ? 'bg-navy-900 text-white'
+                    : 'bg-accent-500 text-white'
+                )}
+              >
+                <Download className="h-4 w-4" />
 
-            {/* Mobile Download CV */}
-
-            <a
-              href="#"
-              className={cn(
-                `
-                  mt-3
-                  flex
-                  items-center
-                  justify-center
-                  gap-2
-                  rounded-lg
-                  px-4
-                  py-3
-                  text-sm
-                  font-medium
-                `,
-
-                scrolled
-                  ? 'bg-navy-900 text-white'
-                  : 'bg-accent-500 text-white'
-              )}
-            >
-
-              <Download className="h-4 w-4" />
-
-              Download CV
-
-            </a>
-
+                Download CV
+              </a>
+            )}
           </div>
-
         </div>
-
       )}
-
     </header>
   );
 }

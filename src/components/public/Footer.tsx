@@ -21,7 +21,7 @@ export function Footer() {
             </p>
             <div className="flex items-center gap-3 pt-2">
               <a
-                href="mailto:johnkessellie.j@gmail.com"
+                href="mailto:johnkjallah29@gmail.com"
                 className="flex h-9 w-9 items-center justify-center rounded-lg bg-white/5 hover:bg-accent-500 border border-white/10 transition-colors"
                 aria-label="Email"
               >
@@ -69,7 +69,7 @@ export function Footer() {
             <div className="space-y-3 text-sm text-white/60">
               <div className="flex items-center gap-2.5">
                 <Mail className="h-4 w-4 text-accent-400 shrink-0" />
-                <span>johnkessellie.j@gmail.com</span>
+                <span>johnkjallah29@gmail.com</span>
               </div>
               <div className="flex items-center gap-2.5">
                 <MapPin className="h-4 w-4 text-accent-400 shrink-0" />
