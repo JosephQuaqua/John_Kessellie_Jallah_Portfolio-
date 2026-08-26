@@ -26,6 +26,7 @@ export interface Experience {
   description: string | null;
   responsibilities: string | null;
   organization_logo: string | null;
+  image_urls: string[] | null;
   display_order: number;
   is_published: boolean;
   created_at: string;

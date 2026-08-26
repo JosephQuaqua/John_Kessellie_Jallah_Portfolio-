@@ -70,7 +70,7 @@ export function AdminCertificationsPage() {
         </DataTable>
       )}
 
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing?.id ? 'Edit Certification' : 'Add Certification'} className="max-w-2xl">
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing?.id ? 'Edit Certification' : 'Add Certification'} className="max-w-2xl max-h-[90vh] overflow-y-auto">
         {editing && (
           <div className="space-y-4">
             <Input label="Title" value={editing.title || ''} onChange={(e) => setEditing({ ...editing, title: e.target.value })} />

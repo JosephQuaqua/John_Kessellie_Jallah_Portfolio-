@@ -69,7 +69,7 @@ export function AdminAwardsPage() {
         </DataTable>
       )}
 
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing?.id ? 'Edit Award' : 'Add Award'} className="max-w-2xl">
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing?.id ? 'Edit Award' : 'Add Award'} className="max-w-2xl max-h-[90vh] overflow-y-auto">
         {editing && (
           <div className="space-y-4">
             <Input label="Award Title" value={editing.title || ''} onChange={(e) => setEditing({ ...editing, title: e.target.value })} />

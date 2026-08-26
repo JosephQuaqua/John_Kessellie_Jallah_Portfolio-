@@ -70,7 +70,7 @@ export function AdminLeadershipPage() {
         </DataTable>
       )}
 
-      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing?.id ? 'Edit Leadership' : 'Add Leadership'} className="max-w-2xl">
+      <Modal open={modalOpen} onClose={() => setModalOpen(false)} title={editing?.id ? 'Edit Leadership' : 'Add Leadership'} className="max-w-2xl max-h-[90vh] overflow-y-auto">
         {editing && (
           <div className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">

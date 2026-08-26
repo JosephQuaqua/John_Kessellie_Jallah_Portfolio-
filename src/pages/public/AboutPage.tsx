@@ -107,7 +107,7 @@ export function AboutPage() {
           HERO SECTION
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-navy-950 py-20 sm:py-24">
+      <section className="relative overflow-hidden bg-navy-950 pt-28 pb-20 sm:pt-32 sm:pb-24">
 
         <div className="absolute inset-0 grid-pattern opacity-20" />
 
@@ -118,6 +118,9 @@ export function AboutPage() {
         <div className="container-page relative">
 
           <Reveal>
+
+
+
 
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-400">
               About John
