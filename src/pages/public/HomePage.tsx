@@ -115,428 +115,802 @@ export function HomePage() {
   return (
     <div>
 
-      {/* =========================================================
-          HERO SECTION
-      ========================================================= */}
-
-      <section className="relative min-h-[760px] h-screen max-h-[960px] overflow-hidden bg-[#020916] pt-20">
-
-        {/* Background lighting */}
-
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_72%_40%,rgba(31,69,135,0.22),transparent_30%),radial-gradient(circle_at_30%_75%,rgba(20,43,83,0.18),transparent_32%)]" />
-
-        {/* Background network */}
-
-        <div className="network-pattern absolute right-[18%] top-[7%] h-[480px] w-[600px]" />
-
-        {/* Decorative circles */}
-
-        <div className="absolute right-[16%] top-[15%] h-72 w-72 rounded-full border border-accent-500/10" />
-
-        <div className="absolute right-[22%] top-[22%] h-52 w-52 rounded-full border border-accent-500/10" />
-
-
-        {/* =====================================================
-            MAIN HERO CONTAINER
-        ===================================================== */}
-
-        <div className="container-page relative z-20 grid h-full grid-cols-1 items-center lg:grid-cols-12">
-
-
-          {/* ===================================================
-              LEFT CONTENT
-          =================================================== */}
-
-          <div className="relative z-30 pb-12 lg:col-span-6 lg:pb-0">
-
-            {/* Professional Badge */}
-
-            <Reveal>
-
-              <span className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/[0.03] px-4 py-2 text-[11px] font-semibold uppercase tracking-[0.18em] text-white/80">
-
-                <span className="h-1.5 w-1.5 rounded-full bg-accent-400" />
-
-                Public Health Professional
-
-              </span>
-
-            </Reveal>
-
-
-            {/* Name */}
-
-            <Reveal delay={0.1}>
-
-              <h1 className="mt-7 max-w-none whitespace-nowrap font-display text-5xl font-extrabold leading-[0.98] tracking-[-0.045em] text-white sm:text-6xl lg:text-[5.2rem]">
-
-                John Kessellie
-
-                <br />
-
-                <span className="gradient-text">
-                  Jallah
-                </span>
-
-              </h1>
-
-            </Reveal>
-
-
-            {/* Tagline */}
-
-            <Reveal delay={0.2}>
-
-              <p className="mt-7 text-base font-medium text-white/75 sm:text-lg">
-
-                {profile?.hero_tagline ||
-                  'Health Researcher • Data-Driven • Community Impact'}
-
-              </p>
-
-            </Reveal>
-
-
-            {/* Description */}
-
-            <Reveal delay={0.3}>
-
-              <p className="mt-4 max-w-xl text-sm leading-[1.75] text-white/65 sm:text-base">
-
-                Dedicated to improving population health and addressing health
-                disparities through research, data analysis, and community health
-                initiatives. Passionate about leveraging evidence and innovation
-                to create sustainable health solutions.
-
-              </p>
-
-            </Reveal>
-
-
-            {/* Buttons */}
-
-            <Reveal delay={0.4}>
-
-              <div className="mt-8 flex flex-wrap items-center gap-3">
-
-                <Link to="/publications">
-
-                  <Button
-                    size="lg"
-                    className="rounded-lg bg-accent-500 px-6 shadow-[0_8px_30px_rgba(59,130,246,0.22)] hover:bg-accent-400"
-                  >
-
-                    Explore My Work
-
-                    <ArrowRight className="h-4 w-4" />
-
-                  </Button>
-
-                </Link>
-
-
-                <Link to="/publications">
-
-                  <Button
-                    size="lg"
-                    variant="ghost"
-                    className="rounded-lg border border-white/25 bg-transparent px-6 text-white hover:bg-white/10"
-                  >
-
-                    <FileText className="h-4 w-4" />
-
-                    View Publications
-
-                  </Button>
-
-                </Link>
-
-
-                <a
-                  href={`mailto:${profile?.email || ''}`}
-                  className="flex h-11 w-11 items-center justify-center rounded-lg border border-white/25 text-white transition-colors hover:bg-white/10"
-                  aria-label="Email"
-                >
-
-                  <Mail className="h-5 w-5" />
-
-                </a>
-
-              </div>
-
-            </Reveal>
-
-
-            {/* Social Links */}
-
-            <Reveal delay={0.5}>
-
-              <div className="mt-8 flex items-center gap-4">
-
-                <a
-                  href={profile?.linkedin_url || '#'}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 text-sm text-white/75 transition-colors hover:text-white"
-                >
-
-                  <span className="flex h-8 w-8 items-center justify-center rounded-md bg-[#0a294c] text-accent-400">
-
-                    <Linkedin className="h-4 w-4" />
-
-                  </span>
-
-                  LinkedIn
-
-                </a>
-
-
-                <span className="h-5 w-px bg-white/25" />
-
-
-                <a
-                  href={`mailto:${profile?.email || ''}`}
-                  className="flex items-center gap-2 text-sm text-white/75 transition-colors hover:text-white"
-                >
-
-                  <Mail className="h-4 w-4" />
-
-                  Email
-
-                </a>
-
-              </div>
-
-            </Reveal>
-
-          </div>
-
-
-          {/* ===================================================
-              HERO IMAGE
-              Shifted slightly RIGHT
-          =================================================== */}
+     {/* =========================================================
+    HERO SECTION
+========================================================= */}
+
+<section
+  className="
+    relative
+    min-h-[900px]
+    overflow-hidden
+    bg-[#020916]
+    pt-20
+    lg:min-h-[760px]
+    lg:h-screen
+    lg:max-h-[960px]
+  "
+>
+
+  {/* =======================================================
+      BACKGROUND LIGHTING
+  ======================================================= */}
+
+  <div
+    className="
+      absolute
+      inset-0
+      bg-[radial-gradient(circle_at_72%_40%,rgba(31,69,135,0.22),transparent_30%),radial-gradient(circle_at_30%_75%,rgba(20,43,83,0.18),transparent_32%)]
+    "
+  />
+
+  {/* Background network */}
+
+  <div
+    className="
+      network-pattern
+      absolute
+      right-[18%]
+      top-[7%]
+      h-[480px]
+      w-[600px]
+    "
+  />
+
+  {/* Decorative circles */}
+
+  <div
+    className="
+      absolute
+      right-[16%]
+      top-[15%]
+      h-72
+      w-72
+      rounded-full
+      border
+      border-accent-500/10
+    "
+  />
+
+  <div
+    className="
+      absolute
+      right-[22%]
+      top-[22%]
+      h-52
+      w-52
+      rounded-full
+      border
+      border-accent-500/10
+    "
+  />
+
+
+  {/* =======================================================
+      MAIN HERO CONTAINER
+  ======================================================= */}
+
+  <div
+    className="
+      container-page
+      relative
+      z-20
+      h-full
+    "
+  >
+
+    {/* =====================================================
+        MOBILE PROFILE IMAGE
+
+        This exists ONLY on mobile.
+        Desktop keeps using the existing desktop image.
+    ===================================================== */}
+
+  <div
+  className="
+    pointer-events-none
+    absolute
+    bottom-[390px]
+    right-[-55px]
+    z-10
+    block
+    h-[650px]
+    w-[380px]
+    sm:right-[-20px]
+    sm:bottom-[380px]
+    sm:h-[700px]
+    sm:w-[430px]
+    lg:hidden
+  "
+>
+
+      <Reveal
+        delay={0.25}
+        className="h-full"
+      >
+
+        <div className="relative h-full w-full">
+
+          {/* Soft glow behind portrait */}
 
           <div
             className="
-              pointer-events-none
               absolute
-              inset-y-0
-              left-[40%]
-              z-10
-              hidden
-              w-[40%]
-              lg:block
+              right-10
+              top-24
+              h-72
+              w-72
+              rounded-full
+              bg-accent-500/10
+              blur-3xl
+            "
+          />
+
+          <img
+            src={PROFILE_IMG}
+            alt="John Kessellie Jallah"
+            className="
+              absolute
+              bottom-0
+              right-0
+              h-[100%]
+              w-auto
+              max-w-none
+              object-contain
+              object-bottom
+              drop-shadow-[0_0_45px_rgba(54,91,160,0.25)]
+            "
+          />
+
+        </div>
+
+      </Reveal>
+
+    </div>
+
+
+    {/* =====================================================
+        LEFT / MAIN CONTENT
+
+        Mobile content sits ABOVE the portrait.
+    ===================================================== */}
+
+    <div
+      className="
+        relative
+        z-30
+        flex
+        h-full
+        flex-col
+        justify-start
+        pb-8
+        pt-10
+        lg:grid
+        lg:grid-cols-12
+        lg:items-center
+        lg:pt-0
+      "
+    >
+
+      {/* ===================================================
+          CONTENT COLUMN
+      =================================================== */}
+
+      <div
+        className="
+          relative
+          z-30
+          w-full
+          lg:col-span-6
+          lg:pb-0
+        "
+      >
+
+        {/* =================================================
+            PROFESSIONAL BADGE
+        ================================================= */}
+
+        <Reveal>
+
+          <span
+            className="
+              inline-flex
+              items-center
+              gap-2
+              rounded-full
+              border
+              border-white/25
+              bg-white/[0.03]
+              px-4
+              py-2
+              text-[10px]
+              font-semibold
+              uppercase
+              tracking-[0.18em]
+              text-white/80
+              sm:text-[11px]
             "
           >
 
-            <Reveal
-              delay={0.25}
-              className="h-full"
+            <span
+              className="
+                h-1.5
+                w-1.5
+                shrink-0
+                rounded-full
+                bg-accent-400
+              "
+            />
+
+            Public Health Professional
+
+          </span>
+
+        </Reveal>
+
+
+        {/* =================================================
+            NAME
+        ================================================= */}
+
+        <Reveal delay={0.1}>
+
+          <h1
+            className="
+              mt-7
+              max-w-[340px]
+              font-display
+              text-[3.35rem]
+              font-extrabold
+              leading-[0.91]
+              tracking-[-0.055em]
+              text-white
+              sm:max-w-[430px]
+              sm:text-[4.25rem]
+              lg:max-w-none
+              lg:whitespace-nowrap
+              lg:text-[5.2rem]
+              lg:leading-[0.98]
+            "
+          >
+
+            <span className="block">
+              John
+            </span>
+
+            <span className="block">
+              Kessellie
+            </span>
+
+            <span className="gradient-text block">
+              Jallah
+            </span>
+
+          </h1>
+
+        </Reveal>
+
+
+        {/* =================================================
+            TAGLINE
+        ================================================= */}
+
+        <Reveal delay={0.2}>
+
+          <p
+            className="
+              mt-7
+              max-w-[320px]
+              text-[15px]
+              font-medium
+              leading-relaxed
+              text-white/75
+              sm:max-w-[440px]
+              sm:text-lg
+              lg:max-w-none
+            "
+          >
+
+            {profile?.hero_tagline ||
+              'Health Researcher • Data-Driven • Community Impact'}
+
+          </p>
+
+        </Reveal>
+
+
+        {/* =================================================
+            DESCRIPTION
+        ================================================= */}
+
+        <Reveal delay={0.3}>
+
+          <p
+            className="
+              mt-4
+              max-w-[315px]
+              text-[13px]
+              leading-[1.65]
+              text-white/65
+              sm:max-w-[460px]
+              sm:text-base
+              sm:leading-[1.75]
+              lg:max-w-xl
+            "
+          >
+
+            Dedicated to improving population health and addressing health
+            disparities through research, data analysis, and community health
+            initiatives. Passionate about leveraging evidence and innovation
+            to create sustainable health solutions.
+
+          </p>
+
+        </Reveal>
+
+
+        {/* =================================================
+            MOBILE BUTTONS
+
+            Desktop button layout is preserved.
+        ================================================= */}
+
+        <Reveal delay={0.4}>
+
+          <div
+            className="
+              mt-7
+              flex
+              w-full
+              max-w-[300px]
+              flex-col
+              gap-3
+              sm:max-w-none
+              sm:flex-row
+              sm:flex-wrap
+              lg:mt-8
+            "
+          >
+
+            <Link
+              to="/publications"
+              className="w-full sm:w-auto"
             >
 
-              <div className="relative h-full w-full">
+              <Button
+                size="lg"
+                className="
+                  h-12
+                  w-full
+                  rounded-lg
+                  bg-accent-500
+                  px-6
+                  shadow-[0_8px_30px_rgba(59,130,246,0.22)]
+                  hover:bg-accent-400
+                  sm:w-auto
+                "
+              >
 
-                <img
-                  src={PROFILE_IMG}
-                  alt="John Kessellie Jallah"
-                  className="
-                    absolute
-                    bottom-0
-                    left-1/2
-                    h-[85%]
-                    w-auto
-                    max-w-none
-                    -translate-x-1/2
-                    object-contain
-                    object-bottom
-                    drop-shadow-[0_0_45px_rgba(54,91,160,0.20)]
-                  "
-                />
+                Explore My Work
 
-              </div>
+                <ArrowRight className="h-4 w-4" />
 
-            </Reveal>
+              </Button>
+
+            </Link>
+
+
+            <Link
+              to="/publications"
+              className="w-full sm:w-auto"
+            >
+
+              <Button
+                size="lg"
+                variant="ghost"
+                className="
+                  h-12
+                  w-full
+                  rounded-lg
+                  border
+                  border-white/25
+                  bg-transparent
+                  px-6
+                  text-white
+                  hover:bg-white/10
+                  sm:w-auto
+                "
+              >
+
+                <FileText className="h-4 w-4" />
+
+                View Publications
+
+              </Button>
+
+            </Link>
+
+
+            <a
+              href={`mailto:${profile?.email || ''}`}
+              className="
+                flex
+                h-12
+                w-full
+                items-center
+                justify-center
+                gap-2
+                rounded-lg
+                border
+                border-white/25
+                text-white
+                transition-colors
+                hover:bg-white/10
+                sm:w-12
+              "
+              aria-label="Email"
+            >
+
+              <Mail className="h-5 w-5" />
+
+              <span className="sm:hidden">
+                Email Me
+              </span>
+
+            </a>
 
           </div>
 
+        </Reveal>
 
-          {/* ===================================================
-              RIGHT INFORMATION CARD
-              Moved UP to align approximately with head
-          =================================================== */}
 
-          <Reveal
+        {/* =================================================
+            SOCIAL LINKS
+
+            Slightly reduced on mobile.
+        ================================================= */}
+
+        <Reveal delay={0.5}>
+
+          <div
+            className="
+              mt-6
+              flex
+              items-center
+              gap-4
+              sm:mt-8
+            "
+          >
+
+            <a
+              href={profile?.linkedin_url || '#'}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                flex
+                items-center
+                gap-2
+                text-xs
+                text-white/75
+                transition-colors
+                hover:text-white
+                sm:text-sm
+              "
+            >
+
+              <span
+                className="
+                  flex
+                  h-8
+                  w-8
+                  items-center
+                  justify-center
+                  rounded-md
+                  bg-[#0a294c]
+                  text-accent-400
+                "
+              >
+
+                <Linkedin className="h-4 w-4" />
+
+              </span>
+
+              LinkedIn
+
+            </a>
+
+
+            <span className="h-5 w-px bg-white/25" />
+
+
+            <a
+              href={`mailto:${profile?.email || ''}`}
+              className="
+                flex
+                items-center
+                gap-2
+                text-xs
+                text-white/75
+                transition-colors
+                hover:text-white
+                sm:text-sm
+              "
+            >
+
+              <Mail className="h-4 w-4" />
+
+              Email
+
+            </a>
+
+          </div>
+
+        </Reveal>
+
+      </div>
+
+
+      {/* ===================================================
+          DESKTOP PROFILE IMAGE
+
+          UNCHANGED DESKTOP BEHAVIOR
+      =================================================== */}
+
+      <div
+        className="
+          pointer-events-none
+          absolute
+          inset-y-0
+          left-[40%]
+          z-10
+          hidden
+          w-[40%]
+          lg:block
+        "
+      >
+
+        <Reveal
+          delay={0.25}
+          className="h-full"
+        >
+
+          <div className="relative h-full w-full">
+
+            <img
+              src={PROFILE_IMG}
+              alt="John Kessellie Jallah"
+              className="
+                absolute
+                bottom-0
+                left-1/2
+                h-[85%]
+                w-auto
+                max-w-none
+                -translate-x-1/2
+                object-contain
+                object-bottom
+                drop-shadow-[0_0_45px_rgba(54,91,160,0.20)]
+              "
+            />
+
+          </div>
+
+        </Reveal>
+
+      </div>
+
+
+      {/* ===================================================
+          INFORMATION CARD
+
+          Desktop = floating right card
+          Mobile = positioned normally near bottom
+      =================================================== */}
+
+     <Reveal
   delay={0.45}
   className="
-    absolute
-    bottom-[45%]
-    right-[1.5%]
+    relative
     z-40
-    hidden
-    w-[310px]
+    mt-24
+    block
+    w-full
+    lg:absolute
+    lg:bottom-[45%]
+    lg:left-auto
+    lg:right-[1.5%]
+    lg:mt-0
+    lg:w-[310px]
     lg:block
   "
 >
 
-            <div
+       <div
+  className="
+    w-full
+    rounded-[16px]
+    border
+    border-white/20
+    bg-[#0b1b33]/95
+    p-4
+    shadow-[0_20px_50px_rgba(0,0,0,0.35)]
+    backdrop-blur-xl
+    sm:p-5
+  "
+>
+
+          {/* =================================================
+              PUBLIC HEALTH
+          ================================================= */}
+
+          <div
+            className="
+              flex
+              items-start
+              gap-3
+              border-b
+              border-white/15
+              pb-4
+            "
+          >
+
+            <span
               className="
-                rounded-[16px]
+                flex
+                h-10
+                w-10
+                shrink-0
+                items-center
+                justify-center
+                rounded-full
                 border
-                border-white/20
-                bg-[#0b1b33]/95
-                p-5
-                shadow-[0_20px_50px_rgba(0,0,0,0.35)]
-                backdrop-blur-xl
+                border-accent-400/30
+                bg-accent-500/10
+                text-accent-300
+                sm:h-11
+                sm:w-11
               "
             >
 
-              {/* =================================================
-                  PUBLIC HEALTH
-              ================================================= */}
+              <GraduationCap className="h-[18px] w-[18px]" />
 
-              <div className="flex items-start gap-3 border-b border-white/15 pb-4">
-
-                <span
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-accent-400/30
-                    bg-accent-500/10
-                    text-accent-300
-                  "
-                >
-
-                  <GraduationCap className="h-[18px] w-[18px]" />
-
-                </span>
+            </span>
 
 
-                <div>
+            <div className="min-w-0">
 
-                  <p className="text-sm font-bold text-white">
-                    Public Health
-                  </p>
+              <p className="text-sm font-bold text-white">
+                Public Health
+              </p>
 
-                  <p className="mt-0.5 text-sm font-semibold text-white/90">
-                    Postgraduate Diploma
-                  </p>
+              <p className="mt-0.5 text-sm font-semibold text-white/90">
+                Postgraduate Diploma
+              </p>
 
-                  <p className="mt-2 text-[11px] text-white/60">
-                    In Progress
-                  </p>
+              <p className="mt-2 text-[11px] text-white/60">
+                In Progress
+              </p>
 
-                  <p className="mt-0.5 text-[11px] text-white/60">
-                    (Completion: July 2026)
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              {/* =================================================
-                  B.SC HEALTH SCIENCES
-              ================================================= */}
-
-              <div className="flex items-start gap-3 border-b border-white/15 py-4">
-
-                <span
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-accent-400/30
-                    bg-accent-500/10
-                    text-accent-300
-                  "
-                >
-
-                  <Microscope className="h-[18px] w-[18px]" />
-
-                </span>
-
-
-                <div>
-
-                  <p className="text-sm font-bold text-white">
-                    B.Sc. Health Sciences
-                  </p>
-
-                  <p className="mt-2 text-xs text-white/65">
-                    CGPA: 8.29/10
-                  </p>
-
-                  <p className="mt-1 text-xs text-white/60">
-                    July 2025
-                  </p>
-
-                </div>
-
-              </div>
-
-
-              {/* =================================================
-                  PUBLICATIONS
-              ================================================= */}
-
-              <div className="flex items-center gap-3 pt-4">
-
-                <span
-                  className="
-                    flex
-                    h-11
-                    w-11
-                    shrink-0
-                    items-center
-                    justify-center
-                    rounded-full
-                    border
-                    border-accent-400/30
-                    bg-accent-500/10
-                    text-accent-300
-                  "
-                >
-
-                  <FileText className="h-[18px] w-[18px]" />
-
-                </span>
-
-
-                <div>
-
-                  <p className="text-2xl font-extrabold leading-none text-white">
-                    {publications.length || 6}+
-                  </p>
-
-                  <p className="mt-1 text-[11px] leading-relaxed text-white/60">
-                    Peer-Reviewed
-                    <br />
-                    Publications
-                  </p>
-
-                </div>
-
-              </div>
+              <p className="mt-0.5 text-[11px] text-white/60">
+                (Completion: July 2026)
+              </p>
 
             </div>
 
-          </Reveal>
+          </div>
+
+
+          {/* =================================================
+              B.SC HEALTH SCIENCES
+          ================================================= */}
+
+          <div
+            className="
+              flex
+              items-start
+              gap-3
+              border-b
+              border-white/15
+              py-4
+            "
+          >
+
+            <span
+              className="
+                flex
+                h-10
+                w-10
+                shrink-0
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-accent-400/30
+                bg-accent-500/10
+                text-accent-300
+                sm:h-11
+                sm:w-11
+              "
+            >
+
+              <Microscope className="h-[18px] w-[18px]" />
+
+            </span>
+
+
+            <div>
+
+              <p className="text-sm font-bold text-white">
+                B.Sc. Health Sciences
+              </p>
+
+              <p className="mt-2 text-xs text-white/65">
+                CGPA: 8.29/10
+              </p>
+
+              <p className="mt-1 text-xs text-white/60">
+                July 2025
+              </p>
+
+            </div>
+
+          </div>
+
+
+          {/* =================================================
+              PUBLICATIONS
+          ================================================= */}
+
+          <div className="flex items-center gap-3 pt-4">
+
+            <span
+              className="
+                flex
+                h-10
+                w-10
+                shrink-0
+                items-center
+                justify-center
+                rounded-full
+                border
+                border-accent-400/30
+                bg-accent-500/10
+                text-accent-300
+                sm:h-11
+                sm:w-11
+              "
+            >
+
+              <FileText className="h-[18px] w-[18px]" />
+
+            </span>
+
+
+            <div>
+
+              <p className="text-2xl font-extrabold leading-none text-white">
+                {publications.length || 6}+
+              </p>
+
+              <p className="mt-1 text-[11px] leading-relaxed text-white/60">
+                Peer-Reviewed
+                <br />
+                Publications
+              </p>
+
+            </div>
+
+          </div>
 
         </div>
 
-      </section>
+      </Reveal>
+
+    </div>
+
+  </div>
+
+</section>
 
 
       {/* =========================================================

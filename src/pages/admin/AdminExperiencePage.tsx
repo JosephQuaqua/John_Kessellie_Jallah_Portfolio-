@@ -1,3 +1,4 @@
+import { supabase } from '@/lib/supabase';
 import { useEffect, useState } from 'react';
 import type { Experience } from '@/types/database';
 import { adminFetchExperiences, crud } from '@/lib/dataService';
@@ -35,8 +36,10 @@ export function AdminExperiencePage() {
   const [modalOpen, setModalOpen] = useState(false);
   const [editing, setEditing] = useState<Partial<Experience> | null>(null);
   const [saving, setSaving] = useState(false);
+
   const [deleteId, setDeleteId] = useState<string | null>(null);
-  const [imageUrl, setImageUrl] = useState('');
+  
+  const [uploading, setUploading] = useState(false);
 
   const load = () => {
     adminFetchExperiences().then((d) => { setItems(d); setLoading(false); }).catch(() => setLoading(false));
@@ -48,16 +51,68 @@ export function AdminExperiencePage() {
     i.position.toLowerCase().includes(search.toLowerCase())
   );
 
-  const openAdd = () => {
+ const openAdd = () => {
   setEditing({ ...empty });
-  setImageUrl('');
   setModalOpen(true);
 };
 
 const openEdit = (item: Experience) => {
   setEditing({ ...item });
-  setImageUrl('');
   setModalOpen(true);
+};
+
+const handleImageUpload = async (
+  event: React.ChangeEvent<HTMLInputElement>
+) => {
+  const files = Array.from(event.target.files || []);
+
+  if (files.length === 0 || !editing) return;
+
+  setUploading(true);
+
+  try {
+    const uploadedUrls: string[] = [];
+
+    for (const file of files) {
+      const fileExt = file.name.split('.').pop();
+
+      const fileName = `${Date.now()}-${Math.random()
+        .toString(36)
+        .substring(2)}.${fileExt}`;
+
+      const filePath = `experiences/${fileName}`;
+
+      const { error: uploadError } = await supabase.storage
+        .from('experience-images')
+        .upload(filePath, file);
+
+      if (uploadError) throw uploadError;
+
+      const { data } = supabase.storage
+        .from('experience-images')
+        .getPublicUrl(filePath);
+
+      uploadedUrls.push(data.publicUrl);
+    }
+
+    setEditing({
+      ...editing,
+      image_urls: [
+        ...(editing.image_urls || []),
+        ...uploadedUrls,
+      ],
+    });
+
+    toast('Photos uploaded successfully', 'success');
+  } catch (error) {
+    console.error(error);
+    toast('Failed to upload photos', 'error');
+  } finally {
+    setUploading(false);
+
+    // Allows selecting the same file again if needed
+    event.target.value = '';
+  }
 };
 
   const handleSave = async () => {
@@ -139,50 +194,78 @@ const openEdit = (item: Experience) => {
             </div>
             <Textarea label="Description" value={editing.description || ''} onChange={(e) => setEditing({ ...editing, description: e.target.value })} />
             <Textarea label="Key Responsibilities" value={editing.responsibilities || ''} onChange={(e) => setEditing({ ...editing, responsibilities: e.target.value })} />
-             <div>
-  <label className="mb-2 block text-sm font-medium text-slate-700">
-    Experience Photos
-  </label>
+            <div>
+  <div className="mb-3 flex items-center justify-between">
+    <div>
+      <label className="block text-sm font-semibold text-slate-700">
+        Experience Photos
+      </label>
 
-  <div className="flex gap-2">
-    <Input
-      placeholder="Paste image URL here..."
-      value={imageUrl}
-      onChange={(e) => setImageUrl(e.target.value)}
-    />
+      <p className="mt-1 text-xs text-slate-400">
+        Upload photos related to this experience.
+      </p>
+    </div>
 
-    <Button
-      type="button"
-      onClick={() => {
-        if (!imageUrl.trim()) return;
-
-        setEditing({
-          ...editing,
-          image_urls: [
-            ...(editing.image_urls || []),
-            imageUrl.trim(),
-          ],
-        });
-
-        setImageUrl('');
-      }}
-    >
-      Add Photo
-    </Button>
+    {editing.image_urls && editing.image_urls.length > 0 && (
+      <span className="rounded-full bg-accent-50 px-3 py-1 text-xs font-medium text-accent-600">
+        {editing.image_urls.length} photo
+        {editing.image_urls.length !== 1 ? 's' : ''}
+      </span>
+    )}
   </div>
 
+  <label
+    className={`
+      flex cursor-pointer flex-col items-center justify-center
+      rounded-2xl border-2 border-dashed p-8
+      transition-all duration-300
+      ${
+        uploading
+          ? 'cursor-wait border-slate-200 bg-slate-50'
+          : 'border-slate-200 bg-slate-50/50 hover:border-accent-400 hover:bg-accent-50/40'
+      }
+    `}
+  >
+    <input
+      type="file"
+      accept="image/*"
+      multiple
+      className="hidden"
+      onChange={handleImageUpload}
+      disabled={uploading}
+    />
+
+    <div className="flex h-12 w-12 items-center justify-center rounded-2xl bg-white text-2xl shadow-soft">
+      📷
+    </div>
+
+    <p className="mt-4 text-sm font-semibold text-navy-900">
+      {uploading ? 'Uploading photos...' : 'Click to choose photos'}
+    </p>
+
+    <p className="mt-1 text-center text-xs text-slate-400">
+      You can select multiple images at once
+    </p>
+  </label>
+
   {editing.image_urls && editing.image_urls.length > 0 && (
-    <div className="mt-4 grid grid-cols-2 gap-3 sm:grid-cols-3">
+    <div className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-3">
       {editing.image_urls.map((url, index) => (
         <div
           key={`${url}-${index}`}
-          className="group relative overflow-hidden rounded-xl border border-slate-200"
+          className="group relative overflow-hidden rounded-xl border border-slate-200 bg-slate-100"
         >
           <img
             src={url}
             alt={`Experience ${index + 1}`}
-            className="h-28 w-full object-cover"
+            className="h-32 w-full object-cover transition-transform duration-300 group-hover:scale-105"
           />
+
+          <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/60 to-transparent p-2 pt-8">
+            <span className="text-xs font-medium text-white">
+              Photo {index + 1}
+            </span>
+          </div>
 
           <button
             type="button"
@@ -194,7 +277,13 @@ const openEdit = (item: Experience) => {
                 ),
               });
             }}
-            className="absolute right-2 top-2 rounded-lg bg-red-500 px-2 py-1 text-xs font-medium text-white opacity-0 transition-opacity group-hover:opacity-100"
+            className="
+              absolute right-2 top-2
+              rounded-lg bg-red-500 px-2.5 py-1.5
+              text-xs font-medium text-white
+              opacity-0 shadow-sm transition-all
+              group-hover:opacity-100
+            "
           >
             Remove
           </button>
