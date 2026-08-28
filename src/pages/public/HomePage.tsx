@@ -262,6 +262,19 @@ export function HomePage() {
             "
           />
 
+          {/* Dark overlay for text readability */}
+
+<div
+  className="
+    absolute
+    inset-0
+    bg-gradient-to-b
+    from-[#020916]/20
+    via-[#020916]/45
+    to-[#020916]/90
+  "
+/>
+
         </div>
 
       </Reveal>
@@ -404,7 +417,8 @@ export function HomePage() {
               text-[15px]
               font-medium
               leading-relaxed
-              text-white/75
+             text-white
+            drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]
               sm:max-w-[440px]
               sm:text-lg
               lg:max-w-none
@@ -425,26 +439,25 @@ export function HomePage() {
 
         <Reveal delay={0.3}>
 
-          <p
-            className="
-              mt-4
-              max-w-[315px]
-              text-[13px]
-              leading-[1.65]
-              text-white/65
-              sm:max-w-[460px]
-              sm:text-base
-              sm:leading-[1.75]
-              lg:max-w-xl
-            "
-          >
-
-            Dedicated to improving population health and addressing health
-            disparities through research, data analysis, and community health
-            initiatives. Passionate about leveraging evidence and innovation
-            to create sustainable health solutions.
-
-          </p>
+         <p
+  className="
+    mt-4
+    max-w-[315px]
+    text-[13px]
+    leading-[1.65]
+    text-[#E8DCC8]
+drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
+    sm:max-w-[460px]
+    sm:text-base
+    sm:leading-[1.75]
+    lg:max-w-xl
+  "
+>
+  Dedicated to improving population health and addressing health
+  disparities through research, data analysis, and community health
+  initiatives. Passionate about leveraging evidence and innovation
+  to create sustainable health solutions.
+</p>
 
         </Reveal>
 
@@ -531,122 +544,244 @@ export function HomePage() {
             </Link>
 
 
-            <a
-              href={`mailto:${profile?.email || ''}`}
-              className="
-                flex
-                h-12
-                w-full
-                items-center
-                justify-center
-                gap-2
-                rounded-lg
-                border
-                border-white/25
-                text-white
-                transition-colors
-                hover:bg-white/10
-                sm:w-12
-              "
-              aria-label="Email"
-            >
-
-              <Mail className="h-5 w-5" />
-
-              <span className="sm:hidden">
-                Email Me
-              </span>
-
-            </a>
+           
 
           </div>
 
         </Reveal>
 
 
-        {/* =================================================
-            SOCIAL LINKS
+       {/* =================================================
+    SOCIAL LINKS
+================================================= */}
 
-            Slightly reduced on mobile.
-        ================================================= */}
+<Reveal delay={0.5}>
+  <div
+    className="
+      mt-6
+      flex
+      flex-wrap
+      items-center
+      gap-x-4
+      gap-y-3
+      sm:mt-8
+    "
+  >
 
-        <Reveal delay={0.5}>
+    {/* LinkedIn */}
+    <a
+      href={profile?.linkedin_url || '#'}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        group
+        flex
+        items-center
+        gap-2
+        text-xs
+        text-[#E8DCC8]
+drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
+        transition-colors
+        hover:text-white
+        sm:text-sm
+      "
+      aria-label="LinkedIn"
+    >
+      <span
+        className="
+          flex
+          h-8
+          w-8
+          items-center
+          justify-center
+          rounded-md
+          bg-[#0a294c]
+          text-accent-400
+          transition-colors
+          group-hover:bg-[#0A66C2]
+          group-hover:text-white
+        "
+      >
+        <Linkedin className="h-4 w-4" />
+      </span>
 
-          <div
-            className="
-              mt-6
-              flex
-              items-center
-              gap-4
-              sm:mt-8
-            "
-          >
-
-            <a
-              href={profile?.linkedin_url || '#'}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="
-                flex
-                items-center
-                gap-2
-                text-xs
-                text-white/75
-                transition-colors
-                hover:text-white
-                sm:text-sm
-              "
-            >
-
-              <span
-                className="
-                  flex
-                  h-8
-                  w-8
-                  items-center
-                  justify-center
-                  rounded-md
-                  bg-[#0a294c]
-                  text-accent-400
-                "
-              >
-
-                <Linkedin className="h-4 w-4" />
-
-              </span>
-
-              LinkedIn
-
-            </a>
-
-
-            <span className="h-5 w-px bg-white/25" />
+      LinkedIn
+    </a>
 
 
-            <a
-              href={`mailto:${profile?.email || ''}`}
-              className="
-                flex
-                items-center
-                gap-2
-                text-xs
-                text-white/75
-                transition-colors
-                hover:text-white
-                sm:text-sm
-              "
-            >
+    <span className="hidden h-5 w-px bg-white/25 sm:block" />
 
-              <Mail className="h-4 w-4" />
 
-              Email
+    {/* Email */}
+    <a
+      href={`mailto:${profile?.email || ''}`}
+      className="
+        group
+        flex
+        items-center
+        gap-2
+        text-xs
+       text-[#E8DCC8]
+drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
+        transition-colors
+        hover:text-white
+        sm:text-sm
+      "
+      aria-label="Email"
+    >
+      <span
+        className="
+          flex
+          h-8
+          w-8
+          items-center
+          justify-center
+          rounded-md
+          bg-white/[0.05]
+          text-white/70
+          transition-colors
+          group-hover:bg-accent-500
+          group-hover:text-white
+        "
+      >
+        <Mail className="h-4 w-4" />
+      </span>
 
-            </a>
+      Email
+    </a>
 
-          </div>
 
-        </Reveal>
+    <span className="hidden h-5 w-px bg-white/25 sm:block" />
 
+
+    {/* Google Scholar */}
+    <a
+      href="https://scholar.google.com/citations?user=HKebfMsAAAAJ&hl=en"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        group
+        flex
+        items-center
+        gap-2
+        text-xs
+        text-[#E8DCC8]
+drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
+        transition-colors
+        hover:text-white
+        sm:text-sm
+      "
+      aria-label="Google Scholar"
+    >
+      <span
+        className="
+          flex
+          h-8
+          w-8
+          items-center
+          justify-center
+          rounded-md
+          bg-white/[0.05]
+          text-white/70
+          transition-colors
+          group-hover:bg-accent-500
+          group-hover:text-white
+        "
+      >
+        <GraduationCap className="h-4 w-4" />
+      </span>
+
+      Google Scholar
+    </a>
+
+
+    <span className="hidden h-5 w-px bg-white/25 sm:block" />
+
+
+    {/* ORCID */}
+    <a
+      href="https://orcid.org/0009-0000-2503-1637"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="
+        group
+        flex
+        items-center
+        gap-2
+        text-xs
+        text-[#E8DCC8]
+drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
+        transition-colors
+        hover:text-white
+        sm:text-sm
+      "
+      aria-label="ORCID"
+    >
+      <span
+        className="
+          flex
+          h-8
+          w-8
+          items-center
+          justify-center
+          rounded-md
+          bg-[#A6CE39]/10
+          text-[#A6CE39]
+          transition-colors
+          group-hover:bg-[#A6CE39]
+          group-hover:text-white
+        "
+      >
+        <span className="text-[10px] font-extrabold tracking-tight">
+          iD
+        </span>
+      </span>
+
+      ORCID
+    </a>
+
+    {/* ResearchGate */}
+<a
+  href="https://www.researchgate.net/profile/John-Kessellie-Jallah-2"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    group
+    flex
+    items-center
+    gap-2
+    text-xs
+    text-[#E8DCC8]
+drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
+    transition-colors
+    hover:text-white
+    sm:text-sm
+  "
+  aria-label="ResearchGate"
+>
+  <span
+    className="
+      flex
+      h-8
+      w-8
+      items-center
+      justify-center
+      rounded-md
+      bg-white/[0.05]
+      text-white/70
+      transition-colors
+      group-hover:bg-[#00CCBB]
+      group-hover:text-white
+    "
+  >
+    <span className="text-xs font-bold">RG</span>
+  </span>
+
+  ResearchGate
+</a>
+
+  </div>
+</Reveal>
       </div>
 
 

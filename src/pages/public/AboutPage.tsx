@@ -5,6 +5,7 @@ import {
   MapPin,
   Phone,
   Globe2,
+  GraduationCap,
   Microscope,
   HeartPulse,
   BarChart3,
@@ -427,6 +428,113 @@ export function AboutPage() {
                   </a>
 
                 )}
+
+                <a
+  href="https://scholar.google.com/citations?user=HKebfMsAAAAJ&hl=en"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    flex
+    items-center
+    gap-3
+    text-slate-600
+    transition-colors
+    hover:text-accent-600
+  "
+>
+  <span
+    className="
+      flex
+      h-9
+      w-9
+      items-center
+      justify-center
+      rounded-lg
+      bg-accent-50
+      text-accent-600
+    "
+  >
+    <GraduationCap className="h-4 w-4" />
+  </span>
+
+  <span className="flex items-center gap-1">
+    Google Scholar
+    <ArrowUpRight className="h-3.5 w-3.5" />
+  </span>
+</a>
+
+
+<a
+  href="https://orcid.org/0009-0000-2503-1637"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    flex
+    items-center
+    gap-3
+    text-slate-600
+    transition-colors
+    hover:text-accent-600
+  "
+>
+  <span
+    className="
+      flex
+      h-9
+      w-9
+      items-center
+      justify-center
+      rounded-lg
+      bg-accent-50
+      text-accent-600
+    "
+  >
+    <span className="text-[10px] font-extrabold">
+      iD
+    </span>
+  </span>
+
+  <span className="flex items-center gap-1">
+    ORCID
+    <ArrowUpRight className="h-3.5 w-3.5" />
+  </span>
+</a>
+
+<a
+  href="https://www.researchgate.net/?_tp=eyJjb250ZXh0Ijp7ImZpcnN0UGFnZSI6InByb2ZpbGUiLCJwYWdlIjoicHJvZmlsZSJ9fQ"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="
+    flex
+    items-center
+    gap-3
+    text-slate-600
+    transition-colors
+    hover:text-accent-600
+  "
+>
+  <span
+    className="
+      flex
+      h-9
+      w-9
+      items-center
+      justify-center
+      rounded-lg
+      bg-accent-50
+      text-accent-600
+    "
+  >
+    <span className="text-[10px] font-extrabold">
+      RG
+    </span>
+  </span>
+
+  <span className="flex items-center gap-1">
+    ResearchGate
+    <ArrowUpRight className="h-3.5 w-3.5" />
+  </span>
+</a>
 
               </div>
 
