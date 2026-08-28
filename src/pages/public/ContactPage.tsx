@@ -320,6 +320,102 @@ export function ContactPage() {
 
               )}
 
+                            {/* Digital Contact Card */}
+
+<div className="mt-8">
+
+  <p className="text-xs font-bold uppercase tracking-widest text-accent-600">
+    Digital Contact Card
+  </p>
+
+  <div
+    className="
+      mt-3
+      overflow-hidden
+      rounded-2xl
+      border
+      border-slate-200
+      bg-gradient-to-br
+      from-navy-950
+      via-[#0b1b33]
+      to-[#10294a]
+      p-6
+      shadow-card
+      sm:p-7
+    "
+  >
+
+    <div className="flex items-start gap-4">
+
+      <div
+        className="
+          flex
+          h-12
+          w-12
+          shrink-0
+          items-center
+          justify-center
+          rounded-xl
+          border
+          border-accent-400/20
+          bg-accent-500/10
+          text-accent-300
+        "
+      >
+        <Phone className="h-5 w-5" />
+      </div>
+
+      <div className="min-w-0">
+
+        <h3 className="font-display text-lg font-extrabold text-white">
+          John Kessellie Jallah
+        </h3>
+
+        <p className="mt-1 text-sm text-slate-300">
+          Public Health Professional
+        </p>
+
+      </div>
+
+    </div>
+
+    <p className="mt-5 text-sm leading-relaxed text-slate-300">
+      Save my professional contact card for quick access to my
+      contact information and professional profiles.
+    </p>
+
+    <a
+      href="/images/john-kessellie-jallah-call-card.png"
+      download
+      className="
+        mt-5
+        inline-flex
+        w-full
+        items-center
+        justify-center
+        gap-2
+        rounded-xl
+        bg-accent-500
+        px-5
+        py-3
+        text-sm
+        font-semibold
+        text-white
+        shadow-lg
+        transition-all
+        hover:-translate-y-0.5
+        hover:bg-accent-400
+        hover:shadow-xl
+        sm:w-auto
+      "
+    >
+      <Send className="h-4 w-4" />
+      Download Contact Card
+    </a>
+
+  </div>
+
+</div>
             </div>
 
           </Reveal>
