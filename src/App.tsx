@@ -15,6 +15,9 @@ import { PublicationDetailPage } from '@/pages/public/PublicationDetailPage';
 import { CertificationsPage } from '@/pages/public/CertificationsPage';
 import { AchievementsPage } from '@/pages/public/AchievementsPage';
 import { ContactPage } from '@/pages/public/ContactPage';
+import { GalleryPage } from '@/pages/public/GalleryPage';
+import { ConsultationPage } from '@/pages/public/ConsultationPage';
+
 
 // Admin pages
 import { AdminLoginPage } from '@/pages/admin/AdminLoginPage';
@@ -59,6 +62,8 @@ function App() {
               <Route path="/certifications" element={<CertificationsPage />} />
               <Route path="/achievements" element={<AchievementsPage />} />
               <Route path="/contact" element={<ContactPage />} />
+              <Route path="/gallery" element={<GalleryPage />} />
+              <Route path="/consultation" element={<ConsultationPage />} />
             </Route>
 
             {/* Admin login */}

@@ -17,6 +17,11 @@ const navLinks = [
   { to: '/contact', label: 'Contact' },
 ];
 
+const mobileExtraLinks = [
+  { to: '/gallery', label: 'Gallery' },
+  { to: '/consultation', label: 'Book a Consultation' },
+];
+
 export function Navbar() {
   const [profile, setProfile] = useState<Profile | null>(null);
   const [scrolled, setScrolled] = useState(false);
@@ -350,6 +355,34 @@ export function Navbar() {
                 {link.label}
               </NavLink>
             ))}
+
+            {mobileExtraLinks.map((link) => (
+  <NavLink
+    key={link.to}
+    to={link.to}
+    className={({ isActive }) =>
+      cn(
+        `
+          rounded-lg
+          px-4
+          py-3
+          text-sm
+          font-medium
+          transition-colors
+        `,
+        scrolled
+          ? isActive
+            ? 'bg-accent-50 text-accent-600'
+            : 'text-slate-600 hover:bg-slate-100'
+          : isActive
+            ? 'bg-accent-500/15 text-accent-300'
+            : 'text-white/70 hover:bg-white/5 hover:text-white'
+      )
+    }
+  >
+    {link.label}
+  </NavLink>
+))}
 
             {/* MOBILE DOWNLOAD CV */}
             {profile?.cv_url && (
