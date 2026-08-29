@@ -72,64 +72,63 @@ export function Navbar() {
       <nav
         className="
           container-page
-          flex
-          h-[76px]
-          items-center
-          justify-between
-          px-5
-          sm:px-8
-          lg:h-[92px]
-          lg:px-10
+flex
+h-[76px]
+items-center
+justify-between
+px-4
+sm:px-6
+lg:h-[92px]
+lg:px-6
         "
       >
         {/* LOGO */}
-        <Link
-          to="/"
-          className="flex min-w-0 shrink-0 items-center gap-2.5"
-        >
-          {/* JK */}
-          <span
-            className={cn(
-              `
-                font-serif
-                text-[2.25rem]
-                font-bold
-                leading-none
-                tracking-[-0.1em]
-                transition-colors
-                sm:text-[2.6rem]
-                lg:text-[2.8rem]
-              `,
-              scrolled ? 'text-navy-900' : 'text-white'
-            )}
-          >
-            JK
-          </span>
+<Link
+  to="/"
+  className="flex min-w-0 shrink-0 items-center gap-2"
+>
+  {/* JK */}
+  <span
+    className={cn(
+      `
+        font-serif
+        text-[1.75rem]
+        font-bold
+        leading-none
+        tracking-[-0.1em]
+        transition-colors
+        sm:text-[2rem]
+        lg:text-[2.2rem]
+      `,
+      scrolled ? 'text-navy-900' : 'text-white'
+    )}
+  >
+    JK
+  </span>
 
-          {/* NAME */}
-          <span
-            className={cn(
-              `
-                block
-                max-w-[190px]
-                truncate
-                whitespace-nowrap
-                font-display
-                text-[0.95rem]
-                font-semibold
-                tracking-[-0.035em]
-                transition-colors
-                sm:max-w-none
-                sm:text-[1rem]
-                lg:text-[1.05rem]
-              `,
-              scrolled ? 'text-navy-900' : 'text-white'
-            )}
-          >
-            John Kessellie Jallah
-          </span>
-        </Link>
-
+  {/* NAME */}
+  <span
+    className={cn(
+      `
+        block
+        max-w-[170px]
+        truncate
+        whitespace-nowrap
+        font-display
+        text-[0.8rem]
+        font-semibold
+        tracking-[-0.03em]
+        transition-colors
+        sm:max-w-none
+        sm:text-[0.9rem]
+        lg:text-[0.95rem]
+      `,
+      scrolled ? 'text-navy-900' : 'text-white'
+    )}
+  >
+    John Kessellie Jallah
+  </span>
+</Link>
         {/* DESKTOP NAVIGATION */}
         <div className="hidden items-center gap-1 lg:flex">
           {navLinks.map((link) => (

@@ -178,4 +178,25 @@ export type TableName =
   | 'research_interests'
   | 'contact_messages'
   | 'media_library'
+  | 'gallery'
   | 'site_settings';
+
+
+  export interface GalleryItem {
+  id: string;
+  title: string;
+  description: string | null;
+
+  file_name: string;
+  file_url: string;
+  storage_path: string;
+
+  file_type: string | null;
+  file_size: number | null;
+
+  display_order: number;
+  is_published: boolean;
+
+  created_at: string;
+  updated_at: string;
+}

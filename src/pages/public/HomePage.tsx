@@ -253,7 +253,7 @@ export function HomePage() {
               absolute
               bottom-0
               right-0
-              h-[100%]
+              h-[85%]
               w-auto
               max-w-none
               object-contain
@@ -310,14 +310,15 @@ export function HomePage() {
       =================================================== */}
 
       <div
-        className="
-          relative
-          z-30
-          w-full
-          lg:col-span-6
-          lg:pb-0
-        "
-      >
+  className="
+    relative
+    z-30
+    w-full
+    lg:col-span-6
+    lg:pb-0
+    lg:translate-y-6
+  "
+>
 
         {/* =================================================
             PROFESSIONAL BADGE
@@ -368,38 +369,33 @@ export function HomePage() {
 
         <Reveal delay={0.1}>
 
-          <h1
-            className="
-              mt-7
-              max-w-[340px]
-              font-display
-              text-[3.35rem]
-              font-extrabold
-              leading-[0.91]
-              tracking-[-0.055em]
-              text-white
-              sm:max-w-[430px]
-              sm:text-[4.25rem]
-              lg:max-w-none
-              lg:whitespace-nowrap
-              lg:text-[5.2rem]
-              lg:leading-[0.98]
-            "
-          >
+       <h1
+  className="
+    mt-7
+    font-display
+    text-[3.35rem]
+    font-extrabold
+    leading-[0.91]
+    tracking-[-0.055em]
+    text-white
+    sm:text-[4.25rem]
+    lg:text-[5.2rem]
+    lg:leading-[0.98]
+  "
+>
+  {/* Mobile */}
+  <span className="block lg:hidden">
+    <span className="block">John</span>
+    <span className="block">Kessellie</span>
+    <span className="gradient-text block">Jallah</span>
+  </span>
 
-            <span className="block">
-              John
-            </span>
-
-            <span className="block">
-              Kessellie
-            </span>
-
-            <span className="gradient-text block">
-              Jallah
-            </span>
-
-          </h1>
+  {/* Laptop / Desktop */}
+  <span className="hidden lg:block whitespace-nowrap">
+    <span>John Kessellie</span>
+    <span className="gradient-text block">Jallah</span>
+  </span>
+</h1>
 
         </Reveal>
 
@@ -818,7 +814,7 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
                 absolute
                 bottom-0
                 left-1/2
-                h-[85%]
+                h-[90%]
                 w-auto
                 max-w-none
                 -translate-x-1/2
@@ -847,11 +843,11 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
   className="
     relative
     z-40
-    mt-24
+    mt-6
     block
     w-full
     lg:absolute
-    lg:bottom-[45%]
+    lg:bottom-[52%]
     lg:left-auto
     lg:right-[1.5%]
     lg:mt-0

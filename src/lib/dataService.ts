@@ -12,6 +12,7 @@ import type {
   ContactMessage,
   MediaItem,
   SiteSettings,
+  GalleryItem,
 } from '@/types/database';
 
 // ============ Profile ============
@@ -178,3 +179,19 @@ export async function submitContactMessage(data: {
     throw error;
   }
 }
+
+// ============ Gallery ============
+
+export async function fetchGallery(): Promise<GalleryItem[]> {
+  const { data, error } = await supabase
+    .from('gallery')
+    .select('*')
+    .eq('is_published', true)
+    .order('display_order', { ascending: true })
+    .order('created_at', { ascending: false });
+
+  if (error) throw error;
+
+  return (data || []) as GalleryItem[];
+}
+
