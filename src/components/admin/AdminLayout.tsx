@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { NavLink, Outlet, useNavigate, Link } from 'react-router-dom';
 import {
   LayoutDashboard, User, Briefcase, GraduationCap, FileText,
-  Award as AwardIcon, Users, Star, Wrench, Microscope, Image,
+  Award as AwardIcon, Users, Star, Wrench, Microscope, Image,Images,
   Mail, Settings, LogOut, Menu, X, HeartPulse, ExternalLink,
 } from 'lucide-react';
 import { supabase } from '@/lib/supabase';
@@ -20,6 +20,7 @@ const navItems = [
   { to: '/admin/skills', label: 'Skills', icon: Wrench },
   { to: '/admin/research-interests', label: 'Research Interests', icon: Microscope },
   { to: '/admin/media', label: 'Media Library', icon: Image },
+  { to: '/admin/gallery', label: 'Gallery', icon: Images },
   { to: '/admin/messages', label: 'Messages', icon: Mail },
   { to: '/admin/settings', label: 'Settings', icon: Settings },
 ];

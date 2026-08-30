@@ -20,6 +20,7 @@ import { ConsultationPage } from '@/pages/public/ConsultationPage';
 
 
 // Admin pages
+import { AdminGalleryPage } from '@/pages/admin/AdminGalleryPage';
 import { AdminLoginPage } from '@/pages/admin/AdminLoginPage';
 import { AdminDashboardPage } from '@/pages/admin/AdminDashboardPage';
 import { AdminProfilePage } from '@/pages/admin/AdminProfilePage';
@@ -91,6 +92,10 @@ function App() {
               <Route path="skills" element={<AdminSkillsPage />} />
               <Route path="research-interests" element={<AdminResearchInterestsPage />} />
               <Route path="media" element={<AdminMediaPage />} />
+              <Route
+  path="gallery"
+  element={<AdminGalleryPage />}
+/>
               <Route path="messages" element={<AdminMessagesPage />} />
               <Route path="settings" element={<AdminSettingsPage />} />
             </Route>

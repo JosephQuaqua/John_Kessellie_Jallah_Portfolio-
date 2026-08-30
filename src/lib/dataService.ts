@@ -195,3 +195,73 @@ export async function fetchGallery(): Promise<GalleryItem[]> {
   return (data || []) as GalleryItem[];
 }
 
+// ============ Gallery Admin ============
+
+export async function adminFetchGallery(): Promise<GalleryItem[]> {
+  const { data, error } = await supabase
+    .from('gallery')
+    .select('*')
+    .order('display_order', { ascending: true })
+    .order('created_at', { ascending: false });
+
+  if (error) throw error;
+
+  return (data || []) as GalleryItem[];
+}
+
+export async function createGalleryItem(data: {
+  title: string;
+  description?: string | null;
+  file_name: string;
+  file_url: string;
+  storage_path: string;
+  file_type?: string | null;
+  file_size?: number | null;
+  display_order?: number;
+  is_published?: boolean;
+}): Promise<GalleryItem> {
+  const { data: item, error } = await supabase
+    .from('gallery')
+    .insert({
+      title: data.title,
+      description: data.description || null,
+      file_name: data.file_name,
+      file_url: data.file_url,
+      storage_path: data.storage_path,
+      file_type: data.file_type || null,
+      file_size: data.file_size || null,
+      display_order: data.display_order ?? 0,
+      is_published: data.is_published ?? true,
+    })
+    .select()
+    .single();
+
+  if (error) throw error;
+
+  return item as GalleryItem;
+}
+
+export async function updateGalleryItem(
+  id: string,
+  updates: Partial<GalleryItem>
+): Promise<GalleryItem> {
+  const { data, error } = await supabase
+    .from('gallery')
+    .update(updates)
+    .eq('id', id)
+    .select()
+    .single();
+
+  if (error) throw error;
+
+  return data as GalleryItem;
+}
+
+export async function deleteGalleryItem(id: string): Promise<void> {
+  const { error } = await supabase
+    .from('gallery')
+    .delete()
+    .eq('id', id);
+
+  if (error) throw error;
+}

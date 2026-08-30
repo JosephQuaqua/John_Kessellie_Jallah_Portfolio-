@@ -11,3 +11,4 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 });
 
 export const STORAGE_BUCKET = 'media';
+export const GALLERY_STORAGE_BUCKET = 'gallery';
