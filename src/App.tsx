@@ -71,14 +71,16 @@ function App() {
 
             {/* Admin protected routes */}
             <Route
-              path="/admin"
-              element={
-                <ProtectedRoute>
-                  <AdminLayout />
-                </ProtectedRoute>
-              }
-            >
-              <Route path="dashboard" element={<AdminDashboardPage />} />
+  path="/admin"
+  element={
+    <ProtectedRoute>
+      <AdminLayout />
+    </ProtectedRoute>
+  }
+>
+  <Route index element={<AdminDashboardPage />} />
+
+  <Route path="dashboard" element={<AdminDashboardPage />} />
               <Route path="profile" element={<AdminProfilePage />} />
               <Route path="experience" element={<AdminExperiencePage />} />
               <Route path="education" element={<AdminEducationPage />} />
