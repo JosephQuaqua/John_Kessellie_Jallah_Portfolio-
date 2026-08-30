@@ -482,7 +482,7 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
           >
 
             <Link
-              to="/publications"
+              to='/consultation'
               className="w-full sm:w-auto"
             >
 
@@ -500,7 +500,7 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
                 "
               >
 
-                Explore My Work
+                Book a Consultation
 
                 <ArrowRight className="h-4 w-4" />
 
@@ -533,7 +533,7 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
 
                 <FileText className="h-4 w-4" />
 
-                View Publications
+                Explore My Work
 
               </Button>
 
