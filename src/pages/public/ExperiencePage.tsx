@@ -109,37 +109,6 @@ export function ExperiencePage() {
             </p>
 
 
-            <div className="mt-10 flex flex-wrap items-center gap-4">
-
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 backdrop-blur-sm">
-
-                <Briefcase className="h-4 w-4 text-accent-400" />
-
-                <span>
-
-                  {experiences.length}{' '}
-                  {experiences.length === 1
-                    ? 'Professional Experience'
-                    : 'Professional Experiences'}
-
-                </span>
-
-              </div>
-
-
-              <div className="inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-slate-300 backdrop-blur-sm">
-
-                <Images className="h-4 w-4 text-accent-400" />
-
-                <span>
-
-                  Professional Work & Field Experiences
-
-                </span>
-
-              </div>
-
-            </div>
 
           </Reveal>
 
