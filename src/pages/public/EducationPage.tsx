@@ -56,79 +56,75 @@ export function EducationPage() {
   return (
     <div>
 
-      {/* =====================================================
-          HERO SECTION
-      ===================================================== */}
+    {/* =====================================================
+    HERO SECTION
+===================================================== */}
 
-      <section className="relative overflow-hidden bg-navy-950 pt-28 pb-20 sm:pt-32 sm:pb-24">
+<section className="relative overflow-hidden bg-navy-950 pb-8 pt-28 sm:pb-10 sm:pt-32">
 
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+  {/* Background pattern */}
+  <div className="pointer-events-none absolute inset-0 grid-pattern opacity-20" />
 
-        <div className="absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-accent-500/10 blur-[120px]" />
+  {/* Decorative glow */}
+  <div className="pointer-events-none absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-accent-500/10 blur-[120px]" />
 
-        <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-iris-500/10 blur-[120px]" />
+  <div className="pointer-events-none absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-iris-500/10 blur-[120px]" />
 
-        <div className="container-page relative">
+  <div className="container-page relative z-10">
 
-          <Reveal>
+    <Reveal>
 
-            <div className="max-w-3xl">
+      <div className="max-w-3xl">
 
-              <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3">
 
-                <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-accent-400 backdrop-blur-sm">
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-accent-400 backdrop-blur-sm">
 
-                  <GraduationCap className="h-5 w-5" />
+            <GraduationCap className="h-5 w-5" />
 
-                </span>
+          </span>
 
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-400">
-
-                  Academic Background
-
-                </span>
-
-              </div>
-
-
-              <h1 className="mt-6 font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
-
-                Education &
-                <span className="text-accent-400">
-                  {' '}Academic Growth.
-                </span>
-
-              </h1>
-
-
-              <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-
-                A foundation shaped through formal education,
-                academic development, research, and a continued
-                commitment to learning and professional growth.
-
-              </p>
-
-
-              <div className="mt-10 flex items-center gap-3 text-sm text-slate-400">
-
-                <GraduationCap className="h-4 w-4 text-accent-400" />
-
-                <span>
-
-                  Academic qualifications, research and continuous learning
-
-                </span>
-
-              </div>
-
-            </div>
-
-          </Reveal>
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-400">
+            Academic Background
+          </span>
 
         </div>
 
-      </section>
+        <h1 className="mt-5 whitespace-nowrap font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+
+          Education &
+
+          <span className="text-accent-400">
+            {' '}Academic Growth.
+          </span>
+
+        </h1>
+
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+
+          A foundation shaped through formal education,
+          academic development, research, and a continued
+          commitment to learning and professional growth.
+
+        </p>
+
+        <div className="mt-6 flex items-center gap-3 text-sm text-slate-400">
+
+          <GraduationCap className="h-4 w-4 text-accent-400" />
+
+          <span>
+            Academic qualifications, research and continuous learning
+          </span>
+
+        </div>
+
+      </div>
+
+    </Reveal>
+
+  </div>
+
+</section>
 
 
       {/* =====================================================

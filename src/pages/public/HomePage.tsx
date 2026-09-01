@@ -316,7 +316,7 @@ export function HomePage() {
     w-full
     lg:col-span-6
     lg:pb-0
-    lg:translate-y-6
+    lg:translate-y-[-5%]
   "
 >
 
@@ -324,43 +324,7 @@ export function HomePage() {
             PROFESSIONAL BADGE
         ================================================= */}
 
-        <Reveal>
-
-          <span
-            className="
-              inline-flex
-              items-center
-              gap-2
-              rounded-full
-              border
-              border-white/25
-              bg-white/[0.03]
-              px-4
-              py-2
-              text-[10px]
-              font-semibold
-              uppercase
-              tracking-[0.18em]
-              text-white/80
-              sm:text-[11px]
-            "
-          >
-
-            <span
-              className="
-                h-1.5
-                w-1.5
-                shrink-0
-                rounded-full
-                bg-accent-400
-              "
-            />
-
-            Public Health Professional
-
-          </span>
-
-        </Reveal>
+        
 
 
         {/* =================================================

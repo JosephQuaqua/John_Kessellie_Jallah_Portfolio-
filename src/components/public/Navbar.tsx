@@ -82,51 +82,80 @@ lg:h-[92px]
 lg:px-6
         "
       >
-        {/* LOGO */}
+       {/* LOGO */}
 <Link
   to="/"
-  className="flex min-w-0 shrink-0 items-center gap-2"
+  aria-label="John Kessellie Jallah - Home"
+  className="group inline-flex min-w-0 shrink-0 items-center gap-3"
 >
   {/* JK */}
   <span
     className={cn(
       `
         font-serif
-        text-[1.75rem]
+        text-[2.15rem]
         font-bold
         leading-none
-        tracking-[-0.1em]
+        tracking-[-0.11em]
         transition-colors
+        duration-200
         sm:text-[2rem]
         lg:text-[2.2rem]
       `,
-      scrolled ? 'text-navy-900' : 'text-white'
+      scrolled
+        ? 'text-navy-900 group-hover:text-accent-600'
+        : 'text-white group-hover:text-accent-400'
     )}
   >
     JK
   </span>
 
-  {/* NAME */}
+  {/* Divider */}
   <span
     className={cn(
-      `
-        block
-        max-w-[170px]
-        truncate
-        whitespace-nowrap
-        font-display
-        text-[0.8rem]
-        font-semibold
-        tracking-[-0.03em]
-        transition-colors
-        sm:max-w-none
-        sm:text-[0.9rem]
-        lg:text-[0.95rem]
-      `,
-      scrolled ? 'text-navy-900' : 'text-white'
+      'h-7 w-px transition-colors duration-200',
+      scrolled ? 'bg-slate-200' : 'bg-white/15'
     )}
-  >
-    John Kessellie Jallah
+  />
+
+  {/* NAME + TITLE */}
+  <span className="min-w-0">
+    <span
+      className={cn(
+        `
+          block
+          whitespace-nowrap
+          font-display
+          text-[13px]
+          font-bold
+          tracking-tight
+          transition-colors
+          duration-200
+          sm:text-[14px]
+          lg:text-[15px]
+        `,
+        scrolled
+          ? 'text-navy-900'
+          : 'text-white'
+      )}
+    >
+      John Kessellie Jallah
+    </span>
+
+    <span
+      className="
+        mt-0.5
+        block
+        text-[8px]
+        font-semibold
+        uppercase
+        tracking-[0.17em]
+        text-accent-400
+        sm:text-[8.5px]
+      "
+    >
+      Public Health Professional
+    </span>
   </span>
 </Link>
         {/* DESKTOP NAVIGATION */}

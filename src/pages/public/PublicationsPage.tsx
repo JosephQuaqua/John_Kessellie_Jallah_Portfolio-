@@ -139,7 +139,7 @@ export function PublicationsPage() {
           HERO SECTION
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-navy-950 pt-28 pb-20 sm:pt-32 sm:pb-24">
+     <section className="relative overflow-hidden bg-navy-950 pt-28 pb-10 sm:pt-32 sm:pb-12">
 
         <div className="absolute inset-0 grid-pattern opacity-20" />
 
@@ -194,7 +194,7 @@ export function PublicationsPage() {
               </p>
 
 
-              <div className="mt-8 flex flex-wrap items-center gap-4">
+              <div className="mt-7 flex flex-wrap items-center gap-4">
 
                 <div className="flex items-center gap-2 text-sm text-white/50">
 

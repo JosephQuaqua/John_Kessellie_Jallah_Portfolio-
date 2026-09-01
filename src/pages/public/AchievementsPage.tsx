@@ -74,98 +74,52 @@ export function AchievementsPage() {
           HERO SECTION
       ===================================================== */}
 
-      <section className="relative overflow-hidden bg-navy-950 pt-28 pb-20 sm:pt-32 sm:pb-24">
+      <section className="relative overflow-hidden bg-navy-950 pb-16 pt-32 sm:pb-20 sm:pt-32 lg:pb-16 lg:pt-32">
 
-        <div className="absolute inset-0 grid-pattern opacity-20" />
+  <div className="absolute inset-0 grid-pattern opacity-20" />
 
-        <div className="absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-accent-500/10 blur-[120px]" />
+  <div className="absolute -right-32 -top-32 h-[500px] w-[500px] rounded-full bg-accent-500/10 blur-[120px]" />
 
-        <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-iris-500/10 blur-[120px]" />
+  <div className="absolute -bottom-40 -left-40 h-[400px] w-[400px] rounded-full bg-iris-500/10 blur-[120px]" />
 
-        <div className="container-page relative">
+  <div className="container-page relative z-10">
 
-          <Reveal>
+    <Reveal>
 
-            <div className="flex items-center gap-3">
+      <div className="max-w-3xl">
 
-              <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-accent-400 backdrop-blur-sm">
+        <div className="flex items-center gap-3">
 
-                <Trophy className="h-5 w-5" />
+          <span className="flex h-10 w-10 items-center justify-center rounded-xl border border-white/10 bg-white/5 text-accent-400 backdrop-blur-sm">
+            <Trophy className="h-5 w-5" />
+          </span>
 
-              </span>
-
-              <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-400">
-
-                Achievements & Leadership
-
-              </span>
-
-            </div>
-
-
-            <h1 className="mt-6 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
-
-              Recognition Through
-              <span className="text-accent-400">
-                {' '}Excellence & Impact.
-              </span>
-
-            </h1>
-
-
-            <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-
-              A journey shaped by academic achievement, professional
-              dedication, leadership, and a continued commitment to
-              creating meaningful impact within communities.
-
-            </p>
-
-
-            {/* Statistics */}
-
-            <div className="mt-10 grid max-w-2xl grid-cols-2 gap-4 sm:grid-cols-2">
-
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
-
-                <p className="text-2xl font-bold text-white sm:text-3xl">
-
-                  {awards.length}
-
-                </p>
-
-                <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-400">
-
-                  Awards & Recognition
-
-                </p>
-
-              </div>
-
-
-              <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-5 backdrop-blur-sm">
-
-                <p className="text-2xl font-bold text-white sm:text-3xl">
-
-                  {leadership.length}
-
-                </p>
-
-                <p className="mt-1 text-xs font-medium uppercase tracking-wider text-slate-400">
-
-                  Leadership Roles
-
-                </p>
-
-              </div>
-
-            </div>
-
-          </Reveal>
+          <span className="text-xs font-bold uppercase tracking-[0.2em] text-accent-400">
+            Achievements & Leadership
+          </span>
 
         </div>
 
-      </section>
+        <h1 className="mt-5 max-w-4xl font-display text-4xl font-extrabold leading-tight text-white sm:text-5xl lg:text-6xl">
+          Recognition Through
+          <span className="text-accent-400">
+            {' '}Excellence & Impact.
+          </span>
+        </h1>
+
+        <p className="mt-5 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
+          A journey shaped by academic achievement, professional
+          dedication, leadership, and a continued commitment to
+          creating meaningful impact within communities.
+        </p>
+
+      </div>
+
+    </Reveal>
+
+  </div>
+
+</section>
 
 
       {/* =====================================================
