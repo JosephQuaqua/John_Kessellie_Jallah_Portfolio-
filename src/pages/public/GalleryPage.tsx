@@ -65,7 +65,7 @@ export function GalleryPage() {
                 <div className="aspect-[16/10] overflow-hidden bg-slate-100">
                   <img
                     src={item.file_url}
-                    alt={item.title}
+                   alt={`${item.title} — John Kessellie Jallah`}
                     className="h-full w-full object-cover"
                   />
                 </div>

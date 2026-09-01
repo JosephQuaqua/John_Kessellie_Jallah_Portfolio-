@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="https://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:image="https://www.google.com/schemas/sitemap-image/1.1"
+>
+  <url>
+    <loc>https://www.johnkesselliejallah.com/gallery</loc>
+
+    <image:image>
+      <image:loc>https://lslzmzqlocyazgahrvap.supabase.co/storage/v1/object/public/gallery/gallery/1788197093994-5nmeu2hj.jpeg</image:loc>
+      <image:title>Comparative Social Problems of Liberia and India – Public Health Perspective</image:title>
+    </image:image>
+
+    
+
+    <!-- <image:image>
+      <image:loc>https://lslzmzqlocyazgahrvap.supabase.co/storage/v1/object/public/gallery/gallery/1788102793181-ki4dv1kv.jpeg</image:loc>
+      <image:title>Community Awareness</image:title>
+    </image:image> -->
+
+  </url>
+</urlset>
