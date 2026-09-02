@@ -19,6 +19,7 @@ const navigation = [
   { to: '/certifications', label: 'Certifications' },
   { to: '/achievements', label: 'Achievements' },
   { to: '/gallery', label: 'Gallery' },
+  { to: '/consultation', label: 'Book a Consultation' },
   { to: '/contact', label: 'Contact' },
 ];
 
@@ -62,14 +63,20 @@ export function Footer() {
       </div>
 
       <div className="relative">
-
         {/* =====================================================
             MAIN FOOTER
         ===================================================== */}
         <div className="container-page py-8 sm:py-9 lg:py-10">
-
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-[1.35fr_0.85fr_0.95fr] lg:gap-10">
-
+          <div
+            className="
+              grid
+              grid-cols-1
+              gap-8
+              sm:grid-cols-2
+              lg:grid-cols-[1.35fr_0.95fr_0.95fr]
+              lg:gap-10
+            "
+          >
             {/* =================================================
                 BRAND
             ================================================= */}
@@ -79,7 +86,7 @@ export function Footer() {
                 aria-label="John Kessellie Jallah - Home"
                 className="group inline-flex items-center gap-3"
               >
-                {/* Same JK mark as Navbar */}
+                {/* JK */}
                 <span
                   className="
                     font-serif
@@ -96,8 +103,10 @@ export function Footer() {
                   JK
                 </span>
 
+                {/* Divider */}
                 <span className="h-7 w-px bg-white/15" />
 
+                {/* Name + Title */}
                 <span>
                   <span className="block font-display text-[15px] font-bold tracking-tight text-white">
                     John Kessellie Jallah
@@ -115,6 +124,7 @@ export function Footer() {
                 research and meaningful public health outcomes.
               </p>
 
+              {/* Location */}
               <div className="mt-3 flex items-center gap-2 text-xs text-slate-500">
                 <MapPin className="h-3.5 w-3.5 text-accent-400" />
                 <span>Liberia / India</span>
@@ -124,21 +134,14 @@ export function Footer() {
               <div className="mt-4 flex items-center gap-2">
                 {professionalLinks.map((item) => {
                   const Icon = item.icon;
+                  const isEmail = item.href.startsWith('mailto:');
 
                   return (
                     <a
                       key={item.label}
                       href={item.href}
-                      target={
-                        item.href.startsWith('mailto:')
-                          ? undefined
-                          : '_blank'
-                      }
-                      rel={
-                        item.href.startsWith('mailto:')
-                          ? undefined
-                          : 'noopener noreferrer'
-                      }
+                      target={isEmail ? undefined : '_blank'}
+                      rel={isEmail ? undefined : 'noopener noreferrer'}
                       aria-label={item.label}
                       title={item.label}
                       className="
@@ -228,9 +231,10 @@ export function Footer() {
               </p>
 
               <h3 className="mt-1 font-display text-[15px] font-bold text-white">
-                Let's Connect
+                Let&apos;s Connect
               </h3>
 
+              {/* Email */}
               <a
                 href="mailto:johnkjallah29@gmail.com"
                 className="
@@ -245,6 +249,7 @@ export function Footer() {
                 "
               >
                 <Mail className="h-3.5 w-3.5 text-accent-400" />
+
                 <span>johnkjallah29@gmail.com</span>
               </a>
 
@@ -253,6 +258,7 @@ export function Footer() {
                 public health initiatives, and consultation.
               </p>
 
+              {/* Consultation CTA */}
               <Link
                 to="/consultation"
                 className="
@@ -276,9 +282,17 @@ export function Footer() {
                   hover:bg-accent-500
                 "
               >
-                <CalendarCheck className="h-3.5 w-3.5 text-accent-400 transition-colors group-hover:text-white" />
+                <CalendarCheck
+                  className="
+                    h-3.5
+                    w-3.5
+                    text-accent-400
+                    transition-colors
+                    group-hover:text-white
+                  "
+                />
 
-                Book a Consultation
+                <span>Book a Consultation</span>
 
                 <ArrowUpRight
                   className="
@@ -302,43 +316,10 @@ export function Footer() {
           {/* =====================================================
               BOTTOM BAR
           ===================================================== */}
-          <div
-            className="
-              flex
-              flex-col
-              gap-2
-              pt-4
-              sm:flex-row
-              sm:items-center
-              sm:justify-between
-            "
-          >
-            <p className="text-[10px] text-slate-500">
+          <div className="pt-4">
+            <p className="text-center text-[10px] text-slate-500 sm:text-left">
               © {year} John Kessellie Jallah. All rights reserved.
             </p>
-
-            <div className="flex items-center gap-4 text-[10px] text-slate-500">
-              <Link
-                to="/contact"
-                className="transition-colors hover:text-slate-300"
-              >
-                Contact
-              </Link>
-
-              <Link
-                to="/gallery"
-                className="transition-colors hover:text-slate-300"
-              >
-                Gallery
-              </Link>
-
-              <Link
-                to="/consultation"
-                className="transition-colors hover:text-slate-300"
-              >
-                Consultation
-              </Link>
-            </div>
           </div>
         </div>
       </div>
