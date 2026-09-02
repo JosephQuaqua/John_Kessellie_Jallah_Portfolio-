@@ -522,9 +522,9 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
       flex
       flex-wrap
       items-center
-      gap-x-4
-      gap-y-3
+      gap-2
       sm:mt-8
+      sm:gap-2.5
     "
   >
 
@@ -533,85 +533,91 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
       href={profile?.linkedin_url || '#'}
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="LinkedIn"
       className="
         group
-        flex
+        inline-flex
+        h-9
         items-center
         gap-2
+        rounded-lg
+        border
+        border-white/10
+        bg-white/[0.045]
+        px-3
         text-xs
+        font-medium
         text-[#E8DCC8]
-drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
-        transition-colors
+        backdrop-blur-sm
+        transition-all
+        duration-200
+        hover:-translate-y-0.5
+        hover:border-[#0A66C2]/50
+        hover:bg-[#0A66C2]/15
         hover:text-white
+        sm:h-10
+        sm:px-3.5
         sm:text-sm
       "
-      aria-label="LinkedIn"
     >
-      <span
+      <Linkedin
         className="
-          flex
-          h-8
-          w-8
-          items-center
-          justify-center
-          rounded-md
-          bg-[#0a294c]
+          h-4
+          w-4
           text-accent-400
           transition-colors
-          group-hover:bg-[#0A66C2]
-          group-hover:text-white
+          duration-200
+          group-hover:text-[#0A66C2]
         "
-      >
-        <Linkedin className="h-4 w-4" />
-      </span>
+      />
 
-      LinkedIn
+      <span>LinkedIn</span>
     </a>
-
-
-    <span className="hidden h-5 w-px bg-white/25 sm:block" />
 
 
     {/* Email */}
     <a
-      href={`mailto:${profile?.email || ''}`}
+      href={`mailto:${profile?.email || 'johnkjallah29@gmail.com'}`}
+      aria-label="Email"
       className="
         group
-        flex
+        inline-flex
+        h-9
         items-center
         gap-2
+        rounded-lg
+        border
+        border-white/10
+        bg-white/[0.045]
+        px-3
         text-xs
-       text-[#E8DCC8]
-drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
-        transition-colors
+        font-medium
+        text-[#E8DCC8]
+        backdrop-blur-sm
+        transition-all
+        duration-200
+        hover:-translate-y-0.5
+        hover:border-accent-400/50
+        hover:bg-accent-500/15
         hover:text-white
+        sm:h-10
+        sm:px-3.5
         sm:text-sm
       "
-      aria-label="Email"
     >
-      <span
+      <Mail
         className="
-          flex
-          h-8
-          w-8
-          items-center
-          justify-center
-          rounded-md
-          bg-white/[0.05]
+          h-4
+          w-4
           text-white/70
           transition-colors
-          group-hover:bg-accent-500
-          group-hover:text-white
+          duration-200
+          group-hover:text-accent-400
         "
-      >
-        <Mail className="h-4 w-4" />
-      </span>
+      />
 
-      Email
+      <span>Email</span>
     </a>
-
-
-    <span className="hidden h-5 w-px bg-white/25 sm:block" />
 
 
     {/* Google Scholar */}
@@ -619,43 +625,46 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
       href="https://scholar.google.com/citations?user=HKebfMsAAAAJ&hl=en"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="Google Scholar"
       className="
         group
-        flex
+        inline-flex
+        h-9
         items-center
         gap-2
+        rounded-lg
+        border
+        border-white/10
+        bg-white/[0.045]
+        px-3
         text-xs
+        font-medium
         text-[#E8DCC8]
-drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
-        transition-colors
+        backdrop-blur-sm
+        transition-all
+        duration-200
+        hover:-translate-y-0.5
+        hover:border-accent-400/50
+        hover:bg-accent-500/15
         hover:text-white
+        sm:h-10
+        sm:px-3.5
         sm:text-sm
       "
-      aria-label="Google Scholar"
     >
-      <span
+      <GraduationCap
         className="
-          flex
-          h-8
-          w-8
-          items-center
-          justify-center
-          rounded-md
-          bg-white/[0.05]
+          h-4
+          w-4
           text-white/70
           transition-colors
-          group-hover:bg-accent-500
-          group-hover:text-white
+          duration-200
+          group-hover:text-accent-400
         "
-      >
-        <GraduationCap className="h-4 w-4" />
-      </span>
+      />
 
-      Google Scholar
+      <span>Google Scholar</span>
     </a>
-
-
-    <span className="hidden h-5 w-px bg-white/25 sm:block" />
 
 
     {/* ORCID */}
@@ -663,82 +672,96 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
       href="https://orcid.org/0009-0000-2503-1637"
       target="_blank"
       rel="noopener noreferrer"
+      aria-label="ORCID"
       className="
         group
-        flex
+        inline-flex
+        h-9
         items-center
         gap-2
+        rounded-lg
+        border
+        border-white/10
+        bg-white/[0.045]
+        px-3
         text-xs
+        font-medium
         text-[#E8DCC8]
-drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
-        transition-colors
+        backdrop-blur-sm
+        transition-all
+        duration-200
+        hover:-translate-y-0.5
+        hover:border-[#A6CE39]/50
+        hover:bg-[#A6CE39]/10
         hover:text-white
+        sm:h-10
+        sm:px-3.5
         sm:text-sm
       "
-      aria-label="ORCID"
     >
       <span
         className="
-          flex
-          h-8
-          w-8
-          items-center
-          justify-center
-          rounded-md
-          bg-[#A6CE39]/10
+          text-[10px]
+          font-extrabold
+          tracking-tight
           text-[#A6CE39]
-          transition-colors
-          group-hover:bg-[#A6CE39]
-          group-hover:text-white
         "
       >
-        <span className="text-[10px] font-extrabold tracking-tight">
-          iD
-        </span>
+        iD
       </span>
 
-      ORCID
+      <span>ORCID</span>
     </a>
 
-    {/* ResearchGate */}
-<a
-  href="https://www.researchgate.net/profile/John-Kessellie-Jallah-2"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="
-    group
-    flex
-    items-center
-    gap-2
-    text-xs
-    text-[#E8DCC8]
-drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
-    transition-colors
-    hover:text-white
-    sm:text-sm
-  "
-  aria-label="ResearchGate"
->
-  <span
-    className="
-      flex
-      h-8
-      w-8
-      items-center
-      justify-center
-      rounded-md
-      bg-white/[0.05]
-      text-white/70
-      transition-colors
-      group-hover:bg-[#00CCBB]
-      group-hover:text-white
-    "
-  >
-    <span className="text-xs font-bold">RG</span>
-  </span>
 
-  ResearchGate
-</a>
+    {/* ResearchGate */}
+    <a
+      href="https://www.researchgate.net/profile/John-Kessellie-Jallah-2"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="ResearchGate"
+      className="
+        group
+        inline-flex
+        h-9
+        items-center
+        gap-2
+        rounded-lg
+        border
+        border-white/10
+        bg-white/[0.045]
+        px-3
+        text-xs
+        font-medium
+        text-[#E8DCC8]
+        backdrop-blur-sm
+        transition-all
+        duration-200
+        hover:-translate-y-0.5
+        hover:border-[#00CCBB]/50
+        hover:bg-[#00CCBB]/10
+        hover:text-white
+        sm:h-10
+        sm:px-3.5
+        sm:text-sm
+      "
+    >
+      <span
+        className="
+          text-[11px]
+          font-bold
+          tracking-tight
+          text-white/70
+          transition-colors
+          duration-200
+          group-hover:text-[#00CCBB]
+        "
+      >
+        RG
+      </span>
+
+      <span>ResearchGate</span>
+    </a>
 
   </div>
 </Reveal>
