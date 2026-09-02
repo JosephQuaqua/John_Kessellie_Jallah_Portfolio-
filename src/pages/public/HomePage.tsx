@@ -90,27 +90,27 @@ export function HomePage() {
   }
 
   const stats = [
-    {
-      label: 'Professional Roles',
-      value: experiences.length,
-      icon: Briefcase,
-    },
-    {
-      label: 'Publications',
-      value: publications.length,
-      icon: FileText,
-    },
-    {
-      label: 'Education',
-      value: education.length,
-      icon: GraduationCap,
-    },
-    {
-      label: 'Research Areas',
-      value: interests.length,
-      icon: Microscope,
-    },
-  ];
+  {
+    label: 'Professional Roles',
+    value: 5,
+    icon: Briefcase,
+  },
+  {
+    label: 'Publications',
+    value: 5,
+    icon: FileText,
+  },
+  {
+    label: 'Education',
+    value: 2,
+    icon: GraduationCap,
+  },
+  {
+    label: 'Research Areas',
+    value: 6,
+    icon: Microscope,
+  },
+];
 
   return (
     <div>
@@ -1039,7 +1039,19 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
 
         <div className="container-page">
 
-          <div className="grid grid-cols-2 divide-x divide-slate-100 rounded-2xl border border-slate-100 bg-white shadow-card lg:grid-cols-4">
+          <div
+  className="
+    grid
+    grid-cols-2
+    overflow-hidden
+    rounded-xl
+    border
+    border-accent-400/10
+    bg-transparent
+    shadow-[0_12px_35px_rgba(0,0,0,0.22)]
+    lg:grid-cols-4
+  "
+>
 
             {stats.map((stat, i) => {
 
@@ -1051,17 +1063,65 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
                   key={stat.label}
                   delay={i * 0.1}
                 >
+<div
+  className="
+    relative
+    flex
+    min-h-[118px]
+    flex-col
+    items-center
+    justify-center
+    border-b
+    border-white/10
+    px-2
+    py-5
+    text-center
+    sm:min-h-[125px]
+    sm:px-3
+    sm:py-6
+    lg:min-h-[145px]
+    lg:border-b-0
+    lg:border-r
+    lg:border-white/10
+    lg:py-6
+    lg:last:border-r-0
+  "
+>
 
-                  <div className="flex flex-col items-center justify-center px-4 py-7 text-center">
-
-                    <span className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-accent-50 text-accent-600">
+                    <span
+  className="
+    mb-2.5
+    flex
+    h-10
+    w-10
+    items-center
+    justify-center
+    rounded-xl
+    bg-accent-500/10
+    text-accent-400
+    sm:h-11
+    sm:w-11
+    lg:mb-3
+    lg:h-12
+    lg:w-12
+  "
+>
 
                       <Icon className="h-5 w-5" />
 
                     </span>
 
-
-                    <p className="font-display text-3xl font-extrabold text-navy-900">
+<p
+  className="
+    font-display
+    text-[1.65rem]
+    font-extrabold
+    leading-none
+    text-navy-900
+    sm:text-3xl
+    lg:text-[2rem]
+  "
+>
 
                       <AnimatedNumber
                         value={stat.value}
@@ -1071,7 +1131,18 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
                     </p>
 
 
-                    <p className="mt-1 text-xs font-medium text-slate-500">
+                    <p
+  className="
+    mt-1
+    max-w-[120px]
+    text-[10px]
+    font-medium
+    leading-4
+    text-slate-600
+    sm:text-xs
+    sm:leading-5
+  "
+>
 
                       {stat.label}
 
@@ -1111,7 +1182,18 @@ drop-shadow-[0_2px_6px_rgba(0,0,0,1)]
               <img
                 src={PROFILE_IMG}
                 alt="John Kessellie Jallah"
-                className="relative h-[480px] w-full rounded-2xl bg-navy-950 object-contain object-bottom shadow-card"
+               className="
+  relative
+  h-[360px]
+  w-full
+  rounded-2xl
+  bg-navy-950
+  object-contain
+  object-bottom
+  shadow-card
+  sm:h-[420px]
+  lg:h-[480px]
+"
               />
 
             </div>
