@@ -22,6 +22,7 @@ const navLinks = [
   { to: '/experience', label: 'Experience' },
   { to: '/education', label: 'Education' },
   { to: '/contact', label: 'Contact' },
+  
 ];
 
 const moreLinks = [
@@ -54,6 +55,9 @@ const moreLinks = [
 
 const mobileExtraLinks = [
   { to: '/gallery', label: 'Gallery' },
+  { to: '/publications', label: 'Publications' },
+  { to: '/certifications', label: 'Certifications' },
+  { to: '/achievements', label: 'Achievements' },
   { to: '/consultation', label: 'Book a Consultation' },
 ];
 
